@@ -1,9 +1,11 @@
-import { SignalModuleMain } from "types";
+import { ISignalModuleMain } from "types";
 
 export class SignallingClass {
-	SignalModuleMain: SignalModuleMain;
+	SignalModuleMain: ISignalModuleMain;
+	EntrySensorTag?: string;
+	ExitSensorTag?: string;
 
-	constructor(Data: SignalModuleMain) {
+	constructor(Data: ISignalModuleMain) {
 		this.SignalModuleMain = Data;
 	}
 
