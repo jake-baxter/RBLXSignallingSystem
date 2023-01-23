@@ -1,7 +1,9 @@
-name: Lint & Build
+name: CI
 
 on:
   pull_request:
+    branches:
+      - master
   push:
     branches:
       - master
@@ -21,3 +23,26 @@ jobs:
           eslint-args: '--ignore-path=.gitignore --quiet'
           extensions: 'js,jsx,ts,tsx'
           annotations: true
+  robloxts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Install Roblox-TS
+        run: |
+          npm i roblox-ts@2.0.4
+      
+      - name: Install Dependencies
+        run: npm i
+      
+      - name: Run Roblox-TS
+        shell: bash
+        run: npx rbxtsc --verbose
+      
+      - name: Done
+        run: echo finished
