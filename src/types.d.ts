@@ -25,4 +25,5 @@ export interface ISignalModuleMain {
 	EntrySensors: Array<BasePart>;
 	EntrySensorTag?: string;
 	ExitSensorTag?: string;
+	IsGlider(part: BasePart): boolean;
 }

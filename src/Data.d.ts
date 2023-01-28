@@ -1,4 +1,4 @@
-import "types";
+import { ISignalModuleMain } from "types";
 
-declare const SignalModuleExport: SignalModuleMain;
+declare const SignalModuleExport: ISignalModuleMain;
 export = SignalModuleExport;
